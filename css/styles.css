@@ -12,7 +12,7 @@ p {
 }
 
 body {
-  background-color: #f8ecec;
+  background-color: #fff8f8;
   margin: 0;
   position: relative;
 }
@@ -114,7 +114,7 @@ nav h1 a {
 }
 
 /* Add a slash symbol (/) before/behind each list item */
-#breadcrumb li+li:before {
+#breadcrumb li + li:before {
   padding: 8px;
   color: black;
   content: "/\00a0";
@@ -142,9 +142,10 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 50px;
+  height: 100%;
   background-color: #3397db;
   align-items: center;
+  padding: 10px;
 }
 
 .filter-options h2 {
@@ -169,6 +170,10 @@ nav h1 a {
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
@@ -177,14 +182,17 @@ nav h1 a {
 }
 
 #restaurants-list li {
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial, sans-serif;
   margin: 15px;
-  min-height: 380px;
-  padding: 0 30px 25px;
-  text-align: left;
-  width: 270px;
+  min-height: 80px;
+  padding: 0;
+  text-align: center;
+  width: 370px;
+  max-width: 85%;
 }
 
 #restaurants-list .restaurant-img {
@@ -192,8 +200,9 @@ nav h1 a {
   display: block;
   margin: 0;
   max-width: 100%;
-  min-height: 248px;
-  min-width: 100%;
+  padding: 0;
+  min-height: auto;
+  min-width: 300px;
 }
 
 #restaurants-list li h1 {
