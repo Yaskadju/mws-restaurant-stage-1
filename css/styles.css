@@ -120,7 +120,7 @@ nav h1 a {
 }
 
 /* Add a slash symbol (/) before/behind each list item */
-#breadcrumb li + li:before {
+#breadcrumb li+li:before {
   padding: 3px;
   color: #fff8f8;
   content: "/\00a0";
@@ -511,4 +511,10 @@ nav h1 a {
     width: 100%;
     z-index: 1000;
   }
+}
+
+/* -------- Aria --------- */
+
+.aria-label {
+  display: none;
 }

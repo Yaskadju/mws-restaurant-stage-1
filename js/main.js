@@ -181,6 +181,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(more)
 
   return li
+
 }
 
 /**
