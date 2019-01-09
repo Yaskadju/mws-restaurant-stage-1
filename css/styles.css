@@ -318,10 +318,10 @@ nav h1 a {
 }
 
 .restaurant-info {
-  width: 50%;
+  width: 45%;
   height: auto;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: space-evenly;
 }
 
@@ -373,8 +373,9 @@ nav h1 a {
 #reviews-container h2 {
   background-color: #333;
   color: #ddd;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 300;
+  padding: 5px;
   letter-spacing: 10px;
   margin-top: 10px;
   margin-left: auto;
@@ -383,10 +384,6 @@ nav h1 a {
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-}
-
-#reviews-container {
-  padding: 10px;
 }
 
 #reviews-list {
@@ -427,6 +424,7 @@ nav h1 a {
 
 #restaurant-hours {
   border: 2px solid #666;
+  padding: auto;
 }
 
 /* --------- Media Queries -------- */
@@ -486,24 +484,16 @@ nav h1 a {
     /* min-height: 0; */
   }
 
-  /* #restaurant-hours {
-    text-align: center;
-    margin: auto;
-  } */
-
   #restaurant-address {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 0 10px 0 10px;
   }
 
-  /* #restaurant-hours {
+  #restaurant-hours {
     border: 2px solid #666;
-    width: 95%;
+    width: 90%;
+    align-self: center;
   }
-
-  .inside #map-container {
-    top: 30px;
-  } */
 }
 
 @media screen and (min-width: 900px) {
