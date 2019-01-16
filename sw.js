@@ -1,22 +1,22 @@
-const cacheName = 'mws-restaurant-static';
+const cacheName = 'v2';
 
-// Install Service Worker
-self.addEventListener('install', function (event) {
-    console.log('The service worker was installed');
+ // Install Service Worker
+self.addEventListener('install', (e) => {
+    console.log('Service Worker was installed');
 
-});
+ });
 
-// Activate event
-self.addEventListener('activate', function (event) {
-    console.log('The service worker was activated');
-    // Unwanted caches removed
-    event.waitUntil(
+ // Activate event
+self.addEventListener('activate', e => {
+    console.log('Service Worker was activated');
+    // Remove unwanted caches
+    e.waitUntil(
         caches.keys()
-        .then(function (cacheNames) {
+        .then(cacheNames => {
             return Promise.all(
-                cacheNames.map(function (cache) {
+                cacheNames.map(cache => {
                     if (cache !== cacheName) {
-                        console.log('Old cache cleared');
+                        console.log('Clearing Old Cache');
                         return caches.delete(cache);
                     }
                 })
@@ -25,25 +25,24 @@ self.addEventListener('activate', function (event) {
     );
 });
 
-// Fetch event
-self.addEventListener('fetch', function (event) {
+ // Fetch event
+self.addEventListener('fetch', e => {
     console.log('Fetching');
-    event.respondWith(
-        fetch(event.request)
-        .then(function (res) {
-            // Make copy of response
+    e.respondWith(
+        fetch(e.request)
+        .then(res => {
+            // Make copy/clone of response
             const resClone = res.clone();
-            // Opens cache
+            // Open cache
             caches
                 .open(cacheName)
-                .then(function (cache) {
+                .then(cache => {
                     // Add response to cache
-                    cache.put(event.request, resClone);
+                    cache.put(e.request, resClone);
                 });
             return res;
         })
-        .catch(function (err) {
-            caches.match(event.request).then(res => res)
-        })
+        .catch(err => caches.match(e.request).then(res => res))
     );
-})
+
+ }) 
